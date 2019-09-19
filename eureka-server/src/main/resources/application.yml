@@ -1,0 +1,39 @@
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://59.110.233.215:8801/eureka/,http://59.110.233.215:8802/eureka/,http://59.110.233.215:8803/eureka/
+#---
+#spring:
+#  profiles: peer1
+#eureka:
+#  instance:
+#    hostname: 59.110.233.215
+#server:
+#  port: 8801
+#---
+#spring:
+#  profiles: peer2
+#eureka:
+#  instance:
+#    hostname: 59.110.233.215
+#server:
+#  port: 8802
+#---
+#spring:
+#  profiles: peer3
+#eureka:
+#  instance:
+#    hostname: 59.110.233.215
+#server:
+#  port: 8803
+
+server:
+  port: 8801
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
